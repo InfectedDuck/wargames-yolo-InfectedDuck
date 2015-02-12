@@ -1,0 +1,11 @@
+trainer2 linuxer
+trainer3 computer
+trainer4 mungguta
+trainer5 goodluck
+trainer6 coffee
+trainer7 to the top < tar & gzip
+trainer8 player
+trainer9 programming
+trainer10 best! > local exploit (Hackerschool)
+
+find / -user someone -perm -4000

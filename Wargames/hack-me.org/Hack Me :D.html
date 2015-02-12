@@ -1,0 +1,310 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<!-- HTML .. -->
+<head>
+<!-- .. .. -->
+<link rel="shortcut icon" href="hackme.ico" type="image/x-icon">
+<title>Hack Me :D</title>
+<link rel="Stylesheet" href="style.css"/>
+<meta http-equiv="Content-Type" content="text/html; charset=euc-kr" />
+<meta http-equiv="Content-Language" content="ko" />
+<!-- CSS .. -->
+<script language=javascript>
+
+function descboxOver(obj) {
+
+if(obj.desc != "")
+{
+	box.innerHTML = obj.desc;
+	box.style.display = "block";
+}
+else 
+	box.style.display = "none";
+
+box.style.pixelLeft = event.x + 40;
+box.style.pixelTop = event.y + document.body.scrollTop;
+
+}
+
+function descboxOut(obj) {
+if(obj.desc != "")
+{
+	box.innerHTML = obj.desc;
+	box.style.display = "none";
+}
+
+box.style.pixelLeft = 0;
+box.style.pixelTop = 0;
+
+box.style.display = "none";
+}
+
+function resizeform()
+{	
+	bodyx = document.body.clientWidth;
+	bodyy = document.body.clientHeight;
+	header = document.getElementById("_header");
+	container = document.getElementById("_container");
+	realcontents = document.getElementById("_realcontents");
+	foot = document.getElementById("_foot");
+	
+	header.style.width = bodyx - ((bodyx / 9) * 2);
+	container.style.width = bodyx - ((bodyx / 9) * 2 + 10);
+	realcontents.style.width = container.style.width;
+	foot.style.width = bodyx - ((bodyx / 9) * 2);
+
+	header.style.left = bodyx / 9 - 15;
+	container.style.left = (bodyx / 9) - 30;
+	realcontents.style.left = container.style.left;
+	foot.style.left = bodyx / 9  - 15;
+
+	container.style.height = (bodyy * 80) / 100;
+	//realcontents.style.height = ((container.style.height - container.style.top) * 80) / 100;
+}
+
+function check_user_form()
+{
+	var user_reg = document.forms['newuserreg'];
+	
+	if(user_reg)
+	{
+		if(4 > user_reg.user_id.value.length || user_reg.user_id.value.length > 20)
+		{
+			alert('4 <= ID length <= 20');
+			return 0;
+		}
+		
+		if(4 > user_reg.user_pw.value.length || user_reg.user_pw.value.length > 30)
+		{
+			alert('4 <= PASSWORD length <= 30');
+			return 0;
+		}
+
+		if(4 > user_reg.cnfuser_pw.value.length || user_reg.cnfuser_pw.value.length > 30)
+		{
+			alert('4 <= CONFIRM PASSWORD length <= 30');
+			return 0;
+		}
+
+		if(4 > user_reg.user_nick.value.length || user_reg.user_nick.value.length > 20)
+		{
+			alert('4 <= NICK LENGTH length <= 20');
+			return 0;
+		}
+
+		if(4 > user_reg.user_email.value.length || user_reg.user_email.value.length > 50)
+		{
+			alert('4 <= EMAIL length <= 50');
+			return 0;
+		}
+		
+		if(user_reg.user_pw.value != user_reg.cnfuser_pw.value)
+		{
+			alert('PASSWORD != COFIRM PASSWORD');
+			return 0;
+		}
+
+		if(user_reg.user_email.value.indexOf('@') < 0)
+		{
+			alert('INVALID FORMAT EMAIL');
+			return 0;
+		}
+
+		user_reg.submit();
+	}
+}
+
+function check_user_form2()
+{
+	var user_reg = document.forms['modifyuserinfo'];
+	
+	if(user_reg)
+	{
+		if(4 > user_reg.user_id.value.length || user_reg.user_id.value.length > 20)
+		{
+			alert('4 <= ID length <= 20');
+			return 0;
+		}
+		
+		if(4 > user_reg.user_pw.value.length || user_reg.user_pw.value.length > 30)
+		{
+			alert('4 <= PASSWORD length <= 30');
+			return 0;
+		}
+
+		if(4 > user_reg.cnfuser_pw.value.length || user_reg.cnfuser_pw.value.length > 30)
+		{
+			alert('4 <= CONFIRM PASSWORD length <= 30');
+			return 0;
+		}
+
+		if(4 > user_reg.user_nick.value.length || user_reg.user_nick.value.length > 20)
+		{
+			alert('4 <= NICK LENGTH length <= 20');
+			return 0;
+		}
+
+		if(4 > user_reg.user_email.value.length || user_reg.user_email.value.length > 50)
+		{
+			alert('4 <= EMAIL length <= 50');
+			return 0;
+		}
+		
+		if(user_reg.user_pw.value != user_reg.cnfuser_pw.value)
+		{
+			alert('PASSWORD != COFIRM PASSWORD');
+			return 0;
+		}
+
+		if(user_reg.user_email.value.indexOf('@') < 0)
+		{
+			alert('INVALID FORMAT EMAIL');
+			return 0;
+		}
+
+		user_reg.submit();
+	}
+}
+
+window.onload = function(){
+	resizeform();
+}
+window.onresize = function() {
+	resizeform();
+}
+
+// function nocontextmenu()
+// {
+// 	event.cancelBubble = true;
+// 	event.returnValue = false;
+// 	return false;
+// }
+// 
+// function norightclick(e)
+// {
+// 	if(window.Event)
+// 	{
+// 		if(e.which == 2 || e.which == 3)
+// 			return false;
+// 		else
+// 		{
+// 			if(event.button == 2 || event.button == 3)
+// 			{
+// 				event.cancelBubble = true;
+// 				event.returnValue = false;
+// 				return false;
+// 			}
+// 		}
+// 	}
+// }
+
+//document.onselectstart = new Function("return false");
+//document.ondragstart = new Function("return false");
+//document.onmousedown = norightclick;
+//document.oncontextmenu = nocontextmenu;
+
+
+</script>
+<!-- .. . -->
+</head>
+<body dir="ltr" alink="#00ff00" bgcolor="#000000" link="#00bfff" vlink="#00bfff" text="#00bfff">
+<!-- background="./images/dot.gif" -->
+<!-- body ondragstart='return false'  oncontextmenu='return false' onselectstart='return false' -->
+<div id='box' class='box'>
+</div>
+<center>
+<table border="0" class = "header" id = _header>
+	<tr>
+		<td nowrap="nowrap" >
+		<b><a href=/index.php?p=modifyinfo>감염오리</a></b> (<font color=#00ff00>175.213.70.137</font>)<br>
+				Point : <font color=#ffffff>1300</font>		</td>
+	</tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" class="container" id=_container>
+	<tr height = 20>
+	<td>
+	</td>
+	</tr>
+	<tr height = 20%>
+		<td align = "center">
+		<a href = "./"><img src="./images/hack-me_banner.jpg" alt="Hack-Me" style = "BORDER-TOP-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px; width: 300px; height: 130px" desc='<br />
+&nbsp;History of the Hack-me<br />
+<br />
+&nbsp;&nbsp;&nbsp;[x] = fix [+] = add [-] = remove<br />
+<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;[x] Fix a Authentication bug <br />
+<br />
+&nbsp;&nbsp;&nbsp;2011-07-20 03:51:43<br />
+&nbsp;&nbsp;&nbsp;Fix bug in session handling thx to thisistest<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;[x] Fixed SQL injection vuln in bbs  <br />
+<br />
+&nbsp;&nbsp;&nbsp;2011-07-10 21:32:03<br />
+&nbsp;&nbsp;&nbsp;CRITICAL: SQL injection found in bbs (thx to blueh4g)<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;[x] Fixed bug in User Registration <br />
+<br />
+&nbsp;&nbsp;&nbsp;2011-07-08 12:58:04<br />
+&nbsp;&nbsp;&nbsp;Fix bugs in registration form.<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;[+] Initial Hack-Me :) <br />
+<br />
+&nbsp;&nbsp;&nbsp;2011-07-06 16:53:50<br />
+&nbsp;&nbsp;&nbsp;Starting challenge service.<br />
+&nbsp;&nbsp;&nbsp;==============================================&nbsp;&nbsp;&nbsp;<br />
+<br />
+' onMouseOver=descboxOver(this); onMouseOut=descboxOut(this);></a>
+		<br><font size = 1 color = #eeeeee>223567</font></br><br>
+		</td>
+	</tr>
+	<tr height = 10%>
+		<td nowrap="nowrap" colspan="2" class="menu">
+		<br>
+		<font color = #ffffff><b> <a href='?p=home' target=_self>Home</a> -</b><b> <a href='?p=aboutus' target=_self>About</a> -</b><b> <a href='?p=challs' target=_self>Challenges</a> -</b><b> <a href='?p=rank' target=_self>Ranking</a> -</b><b> <a href='?p=board' target=_self>Board</a> -</b><b> <a href='?p=chat' target=_self>Chat</a> -</b><b> <a href='?p=crack' target=_self>Crack</a> -</b><b> <a href='?p=docs' target=_self>Research</a> -</b><b> <a href='?p=links' target=_self>Links</a> -</b><b> <a href='?p=logout' target=_self>Logout</a> </b></font>		<br><br>
+		</td>
+	</tr>
+	<tr height = 70% style="width:668px">
+		<td  valign = "top" class = "contents">
+		<span style="/*overflow:auto;*/ width: 650px; height: 250px; top:0;" id = _realcontents>
+		<h3><a href=/index.php?p=challs&prob=Apollo11+Moon+hoax>아폴로11 달 의혹</a></h3><br><br>
+<p style = 'text-align;left'>Description : <br><br>아폴로 11 1969 년 7월 20일(20:17:40 UTC).<br>
+달에 처음으로 간 유인 우주선이다.<br>
+우주 탐사 역사에 있어서 미국의 주요 업적이다.<br>큰 업적인 만큼 의혹도 많은데, <br>
+그 중 하나가 달 뒷편에 대한 이야기이다.<br>
+달 뒷편에 무엇이 있었는지 알고 있는가?<br><br><br>
+<img src=./images/apollo.jpg width=20% height=50%><br><br>
+<font color=#ffffff>
+&nbsp;<span class='cherishH'>.</span>&nbsp;<span class='cherish1'>&nbsp;</span>&nbsp;▽&nbsp;▽&nbsp;◁&nbsp;<span class='cherish8'>&nbsp;</span>&nbsp;<span class='cherishI'>.</span>&nbsp;<span class='cherishB'>.</span>&nbsp;□&nbsp;<span class='cherish5'>&nbsp;</span>&nbsp;▽&nbsp;□&nbsp;<span class='cherishD'>.</span>&nbsp;▶&nbsp;▷&nbsp;▼&nbsp;<span class='cherishH'>.</span>&nbsp;<span class='cherish3'>&nbsp;</span>&nbsp;<span class='cherish9'>&nbsp;</span>&nbsp;<span class='cherishC'>.</span>&nbsp;<span class='cherish4'>&nbsp;</span>&nbsp;<span class='cherish1'>&nbsp;</span>&nbsp;<span class='cherishB'>.</span>&nbsp;<span class='cherishC'>.</span>&nbsp;<span class='cherish1'>&nbsp;</span>&nbsp;<span class='cherishA'>.</span>&nbsp;<span class='cherishF'>.</span>&nbsp;<span class='cherish2'>&nbsp;</span>&nbsp;<span class='cherish2'>&nbsp;</span>&nbsp;<span class='cherishG'>.</span>&nbsp;<span class='cherishE'>.</span>&nbsp;<span class='cherish6'>&nbsp;</span>&nbsp;▲&nbsp;◀&nbsp;△&nbsp;<span class='cherish3'>&nbsp;</span>&nbsp;<span class='cherish7'>&nbsp;</span>&nbsp;◁&nbsp;▽&nbsp;<span class='cherishA'>.</span>&nbsp;<span class='cherishB'>.</span>&nbsp;<span class='cherishI'>.</span>&nbsp;□&nbsp;▼&nbsp;<span class='cherishD'>.</span>&nbsp;◀&nbsp;□&nbsp;▼&nbsp;<span class='cherish8'>&nbsp;</span>&nbsp;□&nbsp;<span class='cherish1'>&nbsp;</span>&nbsp;▽&nbsp;▽&nbsp;<span class='cherish1'>&nbsp;</span>&nbsp;▽&nbsp;▽&nbsp;<span class='cherish5'>&nbsp;</span>&nbsp;<span class='cherishG'>.</span>&nbsp;▲&nbsp;□&nbsp;<span class='cherish2'>&nbsp;</span>&nbsp;<span class='cherishI'>.</span>&nbsp;<span class='cherish3'>&nbsp;</span>&nbsp;<span class='cherish3'>&nbsp;</span>&nbsp;<span class='cherishB'>.</span><br></font></p>
+<div align=center><form action = './auth.php' method = 'post'>
+		<table width = 300 border = 0>
+		<tr>
+		<td width = 30%>Answer : </td>
+		<td width = 70%><input type = 'hidden' name = 'prob' value = 'Apollo11 Moon hoax'>
+		<input type = 'text' name = 'answer' size='25' maxlength='100'></td>
+		</tr>
+		<tr>
+		<td colspan = 2>
+		<input type = 'submit' value = 'Auth' style = 'width:100%'>
+		</td>
+		</tr>
+		</table>
+		</form></div>		</span>
+		</td>
+	</tr>
+</table>
+</center>
+<br>
+<div align='right' valign='bottom' class = "foot" id = _foot>
+<font size=1>Copyright(c) 2009-2013 by <b><font color=#ffffff><a href=mailto:cherishcat@hack-me.org>♥CherishCat♥</a></font></b> - All rights reserved.</font>
+</div>
+<br>
+<!-- body . -->
+</body>
+<!-- HTML  . -->
+</html>
